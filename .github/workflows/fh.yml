@@ -1,7 +1,3 @@
-# ~/.GH/Qompass/Go/adns/.github/workflows/fh.yml
-# ----------------------------------------------
-# Copyright (C) 2025 Qompass AI, All rights reserved
-
 name: Publish to FlakeHub
 
 on:

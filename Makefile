@@ -1,3 +1,6 @@
+#/qompassai/adns/Makefile
+# -----------------------
+# Copyright (C) 2025 Qompass AI, All rights reserved
 build:
 	go build
 	go vet ./...
@@ -8,10 +11,8 @@ test:
 
 check:
 	GOARCH=386 go vet
-	# don't warn about using deprecated functions like net.Temporary
 	staticcheck -checks inherit,-SA1019 ./...
 
-# having "err" shadowed is common, best to not have others
 check-shadow:
 	go vet -vettool=$$(which shadow) ./... 2>&1 | grep -v '"err"'
 
@@ -29,7 +30,6 @@ buildall:
 	GOOS=solaris GOARCH=amd64 go build
 	GOOS=aix GOARCH=ppc64 go build
 	GOOS=windows GOARCH=amd64 go build
-	# no plan9 for now
 
 fmt:
 	gofmt -w -s *.go */*/*.go
